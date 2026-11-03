@@ -8,8 +8,9 @@ const env = Object.fromEntries(
     .split("\n").filter(Boolean).map((l) => l.split("=").map((s) => s.trim()))
 );
 
-const RPC_URL = process.env.RPC_URL;
-const CHALLENGE1 = process.env.CHALLENGE1;
+// Defaults target the user's Base instance; override with env vars if needed.
+const RPC_URL = process.env.RPC_URL || "https://mainnet.base.org";
+const CHALLENGE1 = process.env.CHALLENGE1 || "0xC93e8Ed52e6b4862F44D2202b608F69E664146F1";
 const NAME = process.env.NAME || "lord voldemort";
 if (!RPC_URL || !CHALLENGE1) throw new Error("Set RPC_URL and CHALLENGE1 env vars");
 
